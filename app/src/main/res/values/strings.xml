@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Political Preparedness</string>
+
+    <!-- TODO: Add necessary string values -->
+    <string name="launch_fragment_upcoming_elections_text">Upcoming elections</string>
+    <string name="launch_fragment_find_my_representatives">Find my representatives</string>
+    <!-- My Representative  -->
+    <string name="representative_search">Representative Search</string>
+    <string name="representative_fragment_address_line_1">Address line 1</string>
+    <string name="representative_fragment_address_line_2">Address line 2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
+    <string name="representative_fragment_find_my_representatives">Find my representatives</string>
+    <string name="representative_fragment_use_my_location">Use my location</string>
+    <string name="representative_fragment_my_representative_title">My Representatives</string>
+    <string name="representative_fragment_empty_representative_placeholder">No Representatives</string>
+    <string name="error_getting_representative">Error getting representatives</string>
+    <string name="error_enter_address_line1">Enter Address Line 1</string>
+    <string name="error_enter_city">Enter city</string>
+    <string name="error_enter_state">Enter state</string>
+    <string name="error_enter_zip">Enter zip</string>
+    <string name="error_can_not_find_representative_for_location">Cannot find representatives at this location</string>
+    <string name="permission_denied_explanation">You need to grant location permission in order to select the location.</string>
+    <string name="election_upcoming_header">Upcoming Elections</string>
+    <string name="election_followed_header">Followed Elections</string>
+    <string name="voter_info_election_information">Election Information</string>
+    <string name="voter_info_state_locations">Voting Locations</string>
+    <string name="voter_info_state_ballot">Ballot Information</string>
+    <string name="voter_info_follow_election">Follow election</string>
+    <string name="voter_info_un_follow_election">Unfollow election</string>
+    <string name="correspondence_header">Correspondence Address:</string>
+    <string name="can_not_open_url">Can not open browser</string>
+</resources>

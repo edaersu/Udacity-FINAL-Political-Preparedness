@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Added node to connect Election ViewModel -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.udacity.nanodegree.politicalpreparedness.election.ElectionsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- Add Upcoming Election Recycler and Header -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/election_fragment_upcoming_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:text="@string/election_upcoming_header"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/election_fragment_upcoming_elections"
+            toggleVisibility="@{!viewModel.upcomingElections.empty}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_fragment_upcoming_header"
+            app:layout_constraintVertical_bias="0.0"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_election" />
+
+
+        <!-- Added Saved Election Recycler and Header -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/election_fragment_followed_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:paddingHorizontal="@dimen/default_padding"
+            android:text="@string/election_followed_header"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/election_fragment_upcoming_elections" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/election_fragment_followed_election"
+            toggleVisibility="@{!viewModel.followedElections.empty}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/election_fragment_followed_header"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_election" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

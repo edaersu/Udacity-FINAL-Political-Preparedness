@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Added data binding node -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.udacity.nanodegree.politicalpreparedness.representative.RepresentativeViewModel" />
+
+    </data>
+
+    <!-- Added motion scene to hide form on vertical scroll. -->
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/representative_fragment_motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_representative_scene">
+
+        <!--Added visual styling and content -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/representative_fragment_search_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/representative_search"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Added data binding value -->
+        <!-- Added visual styling and content -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/representative_fragment_input_address_line_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/representative_fragment_address_line_1"
+            android:hint="@string/representative_fragment_address_line_1"
+            android:inputType="textPostalAddress"
+            android:text="@={viewModel.addressLine1}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_search_title" />
+
+        <!-- Added data binding value -->
+        <!-- Added visual styling and content -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/representative_fragment_input_address_line_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/representative_fragment_address_line_2"
+            android:hint="@string/representative_fragment_address_line_2"
+            android:inputType="textPostalAddress"
+            android:text="@={viewModel.addressLine2}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_input_address_line_1" />
+
+        <!-- Added data binding value -->
+        <!-- Added visual styling and content -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/representative_fragment_input_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/city"
+            android:hint="@string/city"
+            android:inputType="textPostalAddress"
+            android:text="@={viewModel.city}"
+            app:layout_constraintEnd_toStartOf="@id/representative_fragment_selector_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_input_address_line_2" />
+
+        <!-- Add default values from provided resources  -->
+        <!-- Add data binding value -->
+        <!-- Add visual styling and content -->
+        <Spinner
+            android:id="@+id/representative_fragment_selector_state"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autofillHints="@string/state"
+            android:inputType="textPostalAddress"
+            app:layout_constraintBottom_toBottomOf="@id/representative_fragment_input_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/representative_fragment_input_city"
+            app:layout_constraintTop_toTopOf="@id/representative_fragment_input_city"
+            app:stateValue="@{viewModel.state}" />
+
+        <!-- Add data binding value -->
+        <!-- Add visual styling and content -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/representative_fragment_input_zip_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/zip"
+            android:hint="@string/zip"
+            android:inputType="number"
+            android:maxLength="6"
+            android:text="@={viewModel.zip}"
+            app:layout_constraintEnd_toEndOf="@id/representative_fragment_input_city"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_input_city" />
+
+        <!-- Added visual styling and label -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/representative_fragment_action_find_my_representatives"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin_small"
+            android:onClick="@{() -> viewModel.fetchRepresentatives()}"
+            android:text="@string/representative_fragment_find_my_representatives"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_input_zip_code" />
+
+        <!-- Added visual styling and content -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/representative_fragment_action_use_my_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin_small"
+            android:layout_marginTop="@dimen/default_margin_small"
+            android:text="@string/representative_fragment_use_my_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_action_find_my_representatives" />
+
+        <!-- Add visual styling and content -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/representative_fragment_my_representative_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_small"
+            android:text="@string/representative_fragment_my_representative_title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_action_use_my_location" />
+
+        <!-- Added Representatives RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/representative_fragment_my_representatives_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="@dimen/default_padding"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_my_representative_title"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_view_representative" />
+
+        <!-- Added visual styling and content -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/representative_fragment_my_representative_empty_placeholder"
+            app:toggleVisibility="@{viewModel.showNoData}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/representative_fragment_empty_representative_placeholder"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_my_representative_title" />
+
+        <ProgressBar
+            android:id="@+id/representative_fragment_progress"
+            app:toggleVisibility="@{viewModel.showLoading}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/representative_fragment_my_representative_title"
+            />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

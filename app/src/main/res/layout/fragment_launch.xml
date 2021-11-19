@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!-- Added image for home screen logo. -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/launch_fragment_ballot_logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/launch_fragment_action_upcoming_election"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ballot_logo" />
+
+
+        <!-- Added Button to navigate to upcoming elections. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/launch_fragment_action_upcoming_election"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin_small"
+            android:text="@string/launch_fragment_upcoming_elections_text"
+            app:layout_constraintBottom_toTopOf="@id/launch_fragment_action_find_my_representatives"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Added Button to navigate to representatives. -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/launch_fragment_action_find_my_representatives"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:text="@string/launch_fragment_find_my_representatives"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
